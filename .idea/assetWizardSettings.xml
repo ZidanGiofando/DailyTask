@@ -34,8 +34,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_edit" />
-                            <entry key="sourceFile" value="C:\Users\zidan giofando\AndroidStudioProjects\DailyTask\icon\icons8-edit.svg" />
+                            <entry key="outputName" value="ic_time" />
+                            <entry key="sourceFile" value="C:\Users\zidan giofando\AndroidStudioProjects\DailyTask\icon\ic_time.svg" />
                           </map>
                         </option>
                       </PersistentState>
