@@ -1,0 +1,35 @@
+<resources>
+
+    <string name="app_name">DailyTask</string>
+
+    <string name="login">Login</string>
+
+    <string name="register">Register</string>
+
+    <string name="logout">Logout</string>
+
+    <string name="save">Simpan Tugas</string>
+
+    <string name="edit">Edit</string>
+
+    <string name="delete">Hapus</string>
+
+    <string name="done">Selesai</string>
+
+    <string name="dashboard">Dashboard</string>
+
+    <string name="task">Task</string>
+
+    <string name="profile">Profile</string>
+
+    <string name="search">Cari tugas...</string>
+
+    <string name="title">Judul Tugas</string>
+
+    <string name="description">Deskripsi</string>
+
+    <string name="deadline">Deadline</string>
+
+    <string name="priority">Prioritas</string>
+
+</resources>

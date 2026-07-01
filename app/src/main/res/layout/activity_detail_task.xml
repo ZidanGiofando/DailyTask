@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8FAFC"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:title="Detail Tugas"
+            android:titleTextColor="@android:color/white"
+            android:background="#4F46E5"
+            app:navigationIcon="@drawable/ic_back"
+            app:navigationIconTint="@android:color/white"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Belajar Android"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:textColor="#111827"/>
+
+                <TextView
+                    android:id="@+id/txtDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Belajar RecyclerView, Retrofit, REST API, Firebase."
+                    android:textSize="15sp"
+                    android:textColor="#6B7280"
+                    android:layout_marginTop="12dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="20dp"
+                    android:background="#E5E7EB"/>
+
+                <TextView
+                    android:text="Deadline"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/txtDeadline"
+                    android:text="30 Juni 2026"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"/>
+
+                <TextView
+                    android:text="Waktu"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/txtTime"
+                    android:text="19:30"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"/>
+
+                <TextView
+                    android:text="Prioritas"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/txtPriority"
+                    android:text="HIGH"
+                    android:textColor="#FFFFFF"
+                    android:padding="8dp"
+                    android:background="@drawable/bg_priority_high"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"/>
+
+                <TextView
+                    android:text="Status"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/txtStatus"
+                    android:text="Belum Selesai"
+                    android:textColor="#FFFFFF"
+                    android:padding="8dp"
+                    android:background="@drawable/bg_status_pending"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEdit"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="EDIT"
+                android:textAllCaps="false"
+                android:backgroundTint="#4F46E5"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="12dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDone"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="TANDAI SELESAI"
+                android:textAllCaps="false"
+                android:backgroundTint="#22C55E"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="12dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDelete"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="HAPUS"
+                android:textAllCaps="false"
+                android:backgroundTint="#EF4444"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
