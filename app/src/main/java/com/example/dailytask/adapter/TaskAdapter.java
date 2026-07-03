@@ -1,6 +1,5 @@
-package com.example.dailytask.adapters;
+package com.example.dailytask.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,38 +7,41 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dailytask.R;
-import com.example.dailytask.models.Task;
+import com.example.dailytask.model.Task;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder> {
 
     public interface OnTaskActionListener {
-        void onTaskClick(Task task);
+        void onItemClick(Task task);
         void onEditClick(Task task);
         void onDeleteClick(Task task);
-        void onCompleteClick(Task task);
+        void onDoneClick(Task task);
     }
 
-    private final Context context;
-    private final List<Task> taskList;
+    private List<Task> taskList = new ArrayList<>();
     private final OnTaskActionListener listener;
+    private final boolean showActions; // false = mode ringkas (dashboard), true = mode lengkap (task list)
 
-    public TaskAdapter(Context context, List<Task> taskList, OnTaskActionListener listener) {
-        this.context = context;
-        this.taskList = taskList;
+    public TaskAdapter(OnTaskActionListener listener, boolean showActions) {
         this.listener = listener;
+        this.showActions = showActions;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.taskList = tasks != null ? tasks : new ArrayList<>();
+        notifyDataSetChanged();
     }
 
     @NonNull
     @Override
     public TaskViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_task, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_task, parent, false);
         return new TaskViewHolder(view);
     }
 
@@ -51,33 +53,34 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         holder.tvDescription.setText(task.getDescription());
         holder.tvDeadline.setText(task.getDeadline());
 
-        String priority = task.getPriority();
-        if (priority == null) priority = "Low";
-        holder.tvPriority.setText(priority.toUpperCase(Locale.ROOT));
-
-        switch (priority.toLowerCase(Locale.ROOT)) {
-            case "high":
+        String priority = task.getPriority() != null ? task.getPriority() : "Medium";
+        holder.tvPriority.setText(priority.toUpperCase());
+        switch (priority) {
+            case "High":
                 holder.tvPriority.setBackgroundResource(R.drawable.bg_priority_high);
                 break;
-            case "medium":
-                holder.tvPriority.setBackgroundResource(R.drawable.bg_priority_medium);
+            case "Low":
+                holder.tvPriority.setBackgroundResource(R.drawable.bg_priority_low);
                 break;
             default:
-                holder.tvPriority.setBackgroundResource(R.drawable.bg_priority_low);
+                holder.tvPriority.setBackgroundResource(R.drawable.bg_priority_medium);
                 break;
         }
 
-        // status 1 = completed, 0 = pending (as per Task.java isCompleted returns status == 1)
-        if (task.getStatus() == 1) {
+        if (task.isDone()) {
             holder.tvStatus.setText("Selesai");
             holder.tvStatus.setBackgroundResource(R.drawable.bg_status_done);
+            holder.btnDone.setEnabled(false);
+            holder.btnDone.setAlpha(0.4f);
         } else {
             holder.tvStatus.setText("Aktif");
             holder.tvStatus.setBackgroundResource(R.drawable.bg_status_pending);
+            holder.btnDone.setEnabled(true);
+            holder.btnDone.setAlpha(1f);
         }
 
-        holder.cardTask.setOnClickListener(v -> {
-            if (listener != null) listener.onTaskClick(task);
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) listener.onItemClick(task);
         });
 
         holder.btnEdit.setOnClickListener(v -> {
@@ -89,7 +92,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         });
 
         holder.btnDone.setOnClickListener(v -> {
-            if (listener != null) listener.onCompleteClick(task);
+            if (listener != null && !task.isDone()) listener.onDoneClick(task);
         });
     }
 
@@ -99,13 +102,11 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     }
 
     static class TaskViewHolder extends RecyclerView.ViewHolder {
-        CardView cardTask;
         TextView tvTitle, tvDescription, tvDeadline, tvPriority, tvStatus;
         ImageButton btnEdit, btnDelete, btnDone;
 
-        public TaskViewHolder(@NonNull View itemView) {
+        TaskViewHolder(@NonNull View itemView) {
             super(itemView);
-            cardTask = itemView.findViewById(R.id.cardTask);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvDeadline = itemView.findViewById(R.id.tvDeadline);

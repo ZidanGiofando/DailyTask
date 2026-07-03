@@ -31,7 +31,7 @@
                     android:id="@+id/imgProfile"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/ic_profile"/>
+                    android:src="@drawable/ic_profile" />
 
                 <TextView
                     android:id="@+id/txtName"
@@ -84,12 +84,16 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Total"
                         android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/txtTotal"
-                        android:text="15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
                         android:textStyle="bold"
                         android:textSize="24sp"/>
 
@@ -110,12 +114,16 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Done"
                         android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/txtDone"
-                        android:text="10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
                         android:textStyle="bold"
                         android:textSize="24sp"
                         android:textColor="#22C55E"/>
@@ -137,12 +145,16 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Pending"
                         android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/txtPending"
-                        android:text="5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
                         android:textStyle="bold"
                         android:textSize="24sp"
                         android:textColor="#EF4444"/>

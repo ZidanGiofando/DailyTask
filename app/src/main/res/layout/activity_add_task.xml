@@ -58,15 +58,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Judul Tugas"
-                    app:startIconDrawable="@drawable/ic_task"
-                    app:boxBackgroundMode="filled">
+                    app:boxBackgroundMode="filled"
+                    >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapSentences"
-                        android:maxLines="1"/>
+                        android:maxLines="1" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,7 +80,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Deskripsi"
-                    app:startIconDrawable="@drawable/ic_description"
                     app:boxBackgroundMode="filled"
                     app:counterEnabled="true"
                     app:counterMaxLength="300">
@@ -106,7 +105,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Tanggal Deadline"
-                    app:startIconDrawable="@drawable/ic_calendar"
                     app:boxBackgroundMode="filled">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -131,7 +129,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Jam Deadline"
-                    app:startIconDrawable="@drawable/ic_time"
                     app:boxBackgroundMode="filled">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -172,17 +169,23 @@
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipHigh"
                         style="@style/Widget.Material3.Chip.Assist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="High"/>
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipMedium"
                         style="@style/Widget.Material3.Chip.Assist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:checked="true"
                         android:text="Medium"/>
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipLow"
                         style="@style/Widget.Material3.Chip.Assist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Low"/>
 
                 </com.google.android.material.chip.ChipGroup>
@@ -206,6 +209,14 @@
                     app:cornerRadius="16dp"
                     app:iconGravity="textStart"
                     app:rippleColor="#D1D5DB"/>
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
