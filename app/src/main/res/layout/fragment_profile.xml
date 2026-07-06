@@ -168,41 +168,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pengaturan"
+            android:text="Lainnya"
             android:textStyle="bold"
             android:textSize="20sp"
             android:textColor="#111827"
             android:layout_marginTop="28dp"
             android:layout_marginBottom="12dp"/>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardEditProfile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:cardCornerRadius="16dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="16dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_edit"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Edit Profile"
-                    android:layout_marginStart="16dp"
-                    android:textSize="16sp"/>
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardAbout"

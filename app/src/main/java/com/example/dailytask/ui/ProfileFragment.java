@@ -56,7 +56,6 @@ public class ProfileFragment extends Fragment {
         txtTotal = view.findViewById(R.id.txtTotal);
         txtDone = view.findViewById(R.id.txtDone);
         txtPending = view.findViewById(R.id.txtPending);
-        cardEditProfile = view.findViewById(R.id.cardEditProfile);
         cardAbout = view.findViewById(R.id.cardAbout);
         btnLogout = view.findViewById(R.id.btnLogout);
 
@@ -65,8 +64,6 @@ public class ProfileFragment extends Fragment {
 
         loadStats();
 
-        cardEditProfile.setOnClickListener(v ->
-                Toast.makeText(requireContext(), "Fitur edit profile: menyusul", Toast.LENGTH_SHORT).show());
 
         cardAbout.setOnClickListener(v -> new AlertDialog.Builder(requireContext())
                 .setTitle("Tentang Aplikasi")
