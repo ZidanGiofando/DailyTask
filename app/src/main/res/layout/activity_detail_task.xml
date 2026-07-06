@@ -16,9 +16,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:title="Detail Tugas"
-            android:titleTextColor="@android:color/white"
             android:background="#4F46E5"
+            app:title="Detail Tugas"
+            app:titleTextColor="@android:color/white"
             app:navigationIcon="@drawable/ic_back"
             app:navigationIconTint="@android:color/white"/>
 
@@ -170,5 +170,4 @@
         </LinearLayout>
 
     </LinearLayout>
-
 </androidx.core.widget.NestedScrollView>

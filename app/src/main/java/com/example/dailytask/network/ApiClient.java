@@ -21,7 +21,7 @@ public class ApiClient {
      * (XAMPP) atau di public_html (hosting) sehingga URL di atas mengarah ke folder
      * yang berisi auth/ dan tasks/.
      */
-    private static final String BASE_URL = "http://10.0.2.2/dailytask_api/";
+    private static final String BASE_URL = "http://192.168.100.13/dailytask_api/";
 
     private static Retrofit retrofit;
 

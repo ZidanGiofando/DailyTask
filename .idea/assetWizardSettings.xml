@@ -349,7 +349,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$PROJECT_DIR$/../../../zidan%20giofando/AppData/Local/Android/Sdk/icons/material/materialsymbolssharp/box_edit/sharp_box_edit_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialsymbolsoutlined/arrows_more_down/outline_arrows_more_down_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -359,7 +359,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_edit" />
+                            <entry key="outputName" value="ic_more_vert" />
                             <entry key="sourceFile" value="C:\Users\zidan giofando\AndroidStudioProjects\DailyTask\icon\ic_description.svg" />
                           </map>
                         </option>

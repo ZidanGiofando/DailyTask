@@ -70,7 +70,7 @@ public class ProfileFragment extends Fragment {
 
         cardAbout.setOnClickListener(v -> new AlertDialog.Builder(requireContext())
                 .setTitle("Tentang Aplikasi")
-                .setMessage("DailyTask - Aplikasi pengingat & pengelola tugas harian.\nDibuat untuk UAS Mobile Programming.")
+                .setMessage("DailyTask - Aplikasi pengingat & pengelola tugas harian.\nDibuat untuk UAS Mobile Programming.\nAnggota Kelompok: \nZidan Giofando (2411500834) \nFayruz Azzuhri (2411500024)")
                 .setPositiveButton("OK", null)
                 .show());
 

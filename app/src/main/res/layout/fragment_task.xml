@@ -25,6 +25,7 @@
             android:textColor="#111827"/>
 
         <TextView
+            android:id="@+id/tvTaskCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Kelola semua tugas harian"
@@ -50,32 +51,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:singleSelection="true">
+            app:singleSelection="true"
+            app:selectionRequired="true">
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipAll"
+                style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Semua"
+                android:checkable="true"
                 android:checked="true"/>
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipPending"
+                style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Aktif"/>
+                android:text="Aktif"
+                android:checkable="true"/>
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipDone"
+                style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Selesai"/>
+                android:text="Selesai"
+                android:checkable="true"/>
 
         </com.google.android.material.chip.ChipGroup>
 
     </LinearLayout>
 
-    <!-- KODE SWIPEREFRESHLAYOUT MASUK DI SINI MENGGANTIKAN RV LAMA -->
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefresh"
         android:layout_width="0dp"

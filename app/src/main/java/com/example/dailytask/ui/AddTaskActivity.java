@@ -2,6 +2,7 @@ package com.example.dailytask.ui;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -82,6 +83,7 @@ public class AddTaskActivity extends AppCompatActivity {
         if (editTaskId != -1) {
             isEditMode = true;
             toolbar.setTitle("Edit Tugas");
+            toolbar.setTitleTextColor(Color.WHITE);
             btnSave.setText("Update Tugas");
 
             etTitle.setText(getIntent().getStringExtra(EXTRA_TASK_TITLE));

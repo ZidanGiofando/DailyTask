@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,20 +12,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Toolbar -->
-
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="#4F46E5"
             android:elevation="6dp"
-            android:title="Tambah Tugas"
-            android:titleTextColor="@android:color/white"
+            app:title="Tambah Tugas"
+            app:titleTextColor="@android:color/white"
             app:navigationIcon="@drawable/ic_back"
             app:navigationIconTint="@android:color/white"/>
-
-        <!-- Card Form -->
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -52,14 +47,11 @@
                     android:textSize="15sp"
                     android:layout_marginBottom="24dp"/>
 
-                <!-- Judul -->
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Judul Tugas"
-                    app:boxBackgroundMode="filled"
-                    >
+                    app:boxBackgroundMode="filled">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etTitle"
@@ -73,8 +65,6 @@
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="16dp"/>
-
-                <!-- Deskripsi -->
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -99,8 +89,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="20dp"/>
 
-                <!-- Deadline -->
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -122,8 +110,6 @@
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="16dp"/>
-
-                <!-- Jam -->
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -147,8 +133,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="24dp"/>
 
-                <!-- Priority -->
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -159,42 +143,52 @@
 
                 <com.google.android.material.chip.ChipGroup
                     android:id="@+id/chipPriority"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    app:chipSpacingHorizontal="8dp"
+                    app:singleSelection="true"
                     app:selectionRequired="true"
-                    app:singleLine="true"
-                    app:singleSelection="true">
+                    app:checkedChip="@+id/chipMedium">
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipHigh"
-                        style="@style/Widget.Material3.Chip.Assist"
+                        style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="High"/>
+                        android:text="High"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:chipIconVisible="false"/>
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipMedium"
-                        style="@style/Widget.Material3.Chip.Assist"
+                        style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:text="Medium"/>
+                        android:text="Medium"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:chipIconVisible="false"/>
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipLow"
-                        style="@style/Widget.Material3.Chip.Assist"
+                        style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Low"/>
+                        android:text="Low"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:chipIconVisible="false"/>
 
                 </com.google.android.material.chip.ChipGroup>
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="32dp"/>
-
-                <!-- Save -->
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnSave"
@@ -207,7 +201,6 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:cornerRadius="16dp"
-                    app:iconGravity="textStart"
                     app:rippleColor="#D1D5DB"/>
 
                 <ProgressBar

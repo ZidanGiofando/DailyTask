@@ -1,5 +1,6 @@
 package com.example.dailytask.adapter;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,24 +58,33 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         holder.tvPriority.setText(priority.toUpperCase());
         switch (priority) {
             case "High":
+                holder.viewPriority.setBackgroundColor(Color.parseColor("#EF4444"));
                 holder.tvPriority.setBackgroundResource(R.drawable.bg_priority_high);
                 break;
-            case "Low":
-                holder.tvPriority.setBackgroundResource(R.drawable.bg_priority_low);
-                break;
-            default:
+
+            case "Medium":
+                holder.viewPriority.setBackgroundColor(Color.parseColor("#F59E0B"));
                 holder.tvPriority.setBackgroundResource(R.drawable.bg_priority_medium);
+                break;
+
+            default:
+                holder.viewPriority.setBackgroundColor(Color.parseColor("#10B981"));
+                holder.tvPriority.setBackgroundResource(R.drawable.bg_priority_low);
                 break;
         }
 
         if (task.isDone()) {
             holder.tvStatus.setText("Selesai");
             holder.tvStatus.setBackgroundResource(R.drawable.bg_status_done);
+
             holder.btnDone.setEnabled(false);
-            holder.btnDone.setAlpha(0.4f);
+            holder.btnDone.setAlpha(0.35f);
+
         } else {
+
             holder.tvStatus.setText("Aktif");
             holder.tvStatus.setBackgroundResource(R.drawable.bg_status_pending);
+
             holder.btnDone.setEnabled(true);
             holder.btnDone.setAlpha(1f);
         }
@@ -84,15 +94,18 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         });
 
         holder.btnEdit.setOnClickListener(v -> {
-            if (listener != null) listener.onEditClick(task);
-        });
-
-        holder.btnDelete.setOnClickListener(v -> {
-            if (listener != null) listener.onDeleteClick(task);
+            if (listener != null)
+                listener.onEditClick(task);
         });
 
         holder.btnDone.setOnClickListener(v -> {
-            if (listener != null && !task.isDone()) listener.onDoneClick(task);
+            if (!task.isDone() && listener != null)
+                listener.onDoneClick(task);
+        });
+
+        holder.btnDelete.setOnClickListener(v -> {
+            if (listener != null)
+                listener.onDeleteClick(task);
         });
     }
 
@@ -102,19 +115,23 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     }
 
     static class TaskViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTitle, tvDescription, tvDeadline, tvPriority, tvStatus;
-        ImageButton btnEdit, btnDelete, btnDone;
 
+        TextView tvTitle, tvDescription, tvDeadline, tvPriority, tvStatus;
+        ImageButton btnEdit, btnDone, btnDelete;
+        View viewPriority;
         TaskViewHolder(@NonNull View itemView) {
             super(itemView);
+
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvDeadline = itemView.findViewById(R.id.tvDeadline);
             tvPriority = itemView.findViewById(R.id.tvPriority);
             tvStatus = itemView.findViewById(R.id.tvStatus);
+
+            viewPriority = itemView.findViewById(R.id.viewPriority);
             btnEdit = itemView.findViewById(R.id.btnEdit);
-            btnDelete = itemView.findViewById(R.id.btnDelete);
             btnDone = itemView.findViewById(R.id.btnDone);
+            btnDelete = itemView.findViewById(R.id.btnDelete);
         }
     }
 }
