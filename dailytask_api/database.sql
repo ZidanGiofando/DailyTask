@@ -35,31 +35,3 @@ CREATE TABLE IF NOT EXISTS tasks (
         FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
-
--- ============================================================
--- ERD (Entity Relationship Diagram) - Representasi teks
--- ============================================================
--- +-----------------+          +--------------------+
--- |     users       |          |       tasks        |
--- +-----------------+          +--------------------+
--- | PK id           |1        *| PK id              |
--- |    name         |----------| FK user_id         |
--- |    email        |          |    title           |
--- |    password     |          |    description     |
--- |    created_at   |          |    deadline         |
--- +-----------------+          |    time             |
---                               |    priority         |
---                               |    status            |
---                               |    created_at        |
---                               +--------------------+
---
--- Relasi: users (1) ---- (N) tasks  [ON DELETE CASCADE]
-
--- ============================================================
--- Data contoh (opsional, untuk testing)
--- ============================================================
--- INSERT INTO users (name, email, password) VALUES
--- ('Zidan Giofando', 'zidan@gmail.com', '$2y$10$examplehashvalue...');
---
--- INSERT INTO tasks (user_id, title, description, deadline, time, priority, status) VALUES
--- (1, 'Belajar Android', 'Belajar RecyclerView, Retrofit, REST API', '2026-07-05', '19:30', 'High', 'pending');
