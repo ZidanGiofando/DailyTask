@@ -138,21 +138,8 @@ Aplikasi menggunakan **MySQL/MariaDB** sebagai basis data utama yang diakses sep
 
 ![ERD DailyTask](docs/erd_dailytask.png)
 
-```
-+-----------------+          +--------------------+
-|     users       |          |       tasks        |
-+-----------------+          +--------------------+
-| PK id           |1        *| PK id              |
-|    name         |----------| FK user_id         |
-|    email        |          |    title           |
-|    password     |          |    description     |
-|    created_at   |          |    deadline        |
-+-----------------+          |    time            |
-                              |    priority        |
-                              |    status          |
-                              |    created_at      |
-                              +--------------------+
-```
+<img width="906" height="511" alt="image" src="https://github.com/user-attachments/assets/0cace59b-daf4-4e07-9726-dd1e7e5a8e46" />
+
 
 ---
 
