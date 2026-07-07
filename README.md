@@ -18,8 +18,6 @@ Aplikasi Android **Pengelola & Pengingat Tugas Harian** — dibuat untuk memenuh
 6. [Daftar Library](#6-daftar-library)
 7. [Manajemen Database & ERD](#7-manajemen-database--erd)
 8. [Daftar REST API](#8-daftar-rest-api)
-9. [Cara Menjalankan Proyek](#9-cara-menjalankan-proyek)
-10. [Kelengkapan Pengumpulan](#10-kelengkapan-pengumpulan)
 
 ---
 
@@ -390,33 +388,3 @@ id=4
 ```
 
 ---
-
-## 9. Cara Menjalankan Proyek
-
-### Backend (PHP + MySQL/MariaDB)
-1. Import `dailytask_api/database.sql` ke MySQL/MariaDB (misalnya lewat phpMyAdmin) — otomatis membuat database `dailytask_db` beserta tabel `users` dan `tasks`.
-2. Salin folder `dailytask_api/` ke direktori server:
-   - **XAMPP:** `htdocs/dailytask_api/`
-   - **Laragon:** `www/dailytask_api/`
-3. Sesuaikan kredensial database di `dailytask_api/config/database.php` bila perlu (default: host `localhost`, user `root`, password kosong).
-4. Pastikan Apache & MySQL berjalan.
-
-### Android (Java, Android Studio)
-1. Buka proyek pada folder `DailyTask-main/` di Android Studio.
-2. Sesuaikan `BASE_URL` pada `ApiClient.java` sesuai lokasi backend:
-   - Emulator Android Studio → `http://10.0.2.2/dailytask_api/`
-   - HP fisik (1 jaringan WiFi dengan komputer) → `http://<IP-lokal-komputer>/dailytask_api/`
-   - Sudah online/hosting → `https://namadomainanda.com/dailytask_api/`
-3. Sync Gradle, lalu jalankan (Run) ke emulator/perangkat fisik.
-
----
-
-## 10. Kelengkapan Pengumpulan
-
-Sesuai ketentuan Soal UAS No. 2:
-
-- [ ] **URL Repository GitHub:** _isi dengan link repo publik Anda — jika berkelompok, sertakan 2 URL dari 2 akun berbeda_
-- [ ] **File APK:** _isi dengan link Google Drive/GitHub Release/attachment APK hasil build_
-- [x] **Dokumentasi Teknis:** README ini (mencakup deskripsi, fitur, Activity, Intent, Widget, Library, dan ERD)
-- [x] **Daftar REST API:** tercantum pada [Bab 8](#8-daftar-rest-api) di atas
-- [ ] **Video Demo Aplikasi** (maks. 10 menit): _isi dengan link YouTube/Google Drive_ — wajib menampilkan UI, proses CRUD, integrasi REST API, dan penjelasan singkat aplikasi
