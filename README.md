@@ -136,9 +136,8 @@ Aplikasi menggunakan **MySQL/MariaDB** sebagai basis data utama yang diakses sep
 
 **Entity Relationship Diagram (ERD):**
 
-![ERD DailyTask](docs/erd_dailytask.png)
+<img width="805" height="462" alt="image" src="https://github.com/user-attachments/assets/65f0026b-013c-4105-bf51-143bd8d1072d" />
 
-<img width="906" height="511" alt="image" src="https://github.com/user-attachments/assets/0cace59b-daf4-4e07-9726-dd1e7e5a8e46" />
 
 
 ---
@@ -158,25 +157,16 @@ Aplikasi menggunakan **MySQL/MariaDB** sebagai basis data utama yang diakses sep
 | POST | `tasks/update_status.php` | Memperbarui status tugas menjadi pending/done. |
 | POST | `tasks/delete.php` | Menghapus tugas (Delete). |
 
-Seluruh response mengikuti format standar:
-
-```json
-{
-  "status": "success" | "error",
-  "message": "keterangan proses",
-  "data": { ... } | [ ... ] | null
-}
-```
 
 ### 1. POST `auth/register.php`
 Mendaftarkan akun pengguna baru. Validasi: nama/email/password wajib diisi, format email valid, password minimal 6 karakter, email belum terdaftar.
 
 **Request**
 ```
-POST /dailytask_api/auth/register.php
+POST http://localhost/dailytask_api/auth/register.php
 Content-Type: application/x-www-form-urlencoded
 
-name=Zidan Giofando&email=zidan@gmail.com&password=rahasia123
+name=zidan giofando&email=zidan@gmail.com&password=zidan@123
 ```
 
 **Response (sukses)**
@@ -186,7 +176,7 @@ name=Zidan Giofando&email=zidan@gmail.com&password=rahasia123
   "message": "Registrasi berhasil",
   "data": {
     "id": 1,
-    "name": "Zidan Giofando",
+    "name": "zidan giofando",
     "email": "zidan@gmail.com"
   }
 }
@@ -197,10 +187,10 @@ Autentikasi pengguna berdasarkan email dan password (dicocokkan dengan hash bcry
 
 **Request**
 ```
-POST /dailytask_api/auth/login.php
+POST http://localhost/dailytask_api/auth/login.php
 Content-Type: application/x-www-form-urlencoded
 
-email=zidan@gmail.com&password=rahasia123
+email=zidan@gmail.com&password=zidan@123
 ```
 
 **Response (sukses)**
@@ -210,7 +200,7 @@ email=zidan@gmail.com&password=rahasia123
   "message": "Login berhasil",
   "data": {
     "id": 1,
-    "name": "Zidan Giofando",
+    "name": "zidan giofando",
     "email": "zidan@gmail.com"
   }
 }
@@ -221,27 +211,25 @@ Mengambil seluruh data tugas milik user tertentu, diurutkan berdasarkan deadline
 
 **Request**
 ```
-GET /dailytask_api/tasks/read.php?user_id=1
+GET http://localhost/dailytask_api/tasks/read.php?user_id=1
 ```
 
 **Response (sukses)**
 ```json
 {
-  "status": "success",
-  "message": "Data tugas berhasil diambil",
-  "data": [
-    {
-      "id": 3,
-      "user_id": 1,
-      "title": "Mengerjakan UAS Mobile Programming",
-      "description": "Membuat aplikasi DailyTask & dokumentasi",
-      "deadline": "2026-07-10",
-      "time": "23:59:00",
-      "priority": "High",
-      "status": "pending",
-      "created_at": "2026-07-05 10:20:00"
+    "status": "success",
+    "message": "Data tugas berhasil diambil",
+    "data": {
+        "id": 1,
+        "user_id": 1,
+        "title": "moprog uas",
+        "description": "uas kali ini akan membuat app untuk menyelesaikan masalah sehari hari seperti ini",
+        "deadline": "2026-07-03",
+        "time": "18:05:00",
+        "priority": "Medium",
+        "status": "done",
+        "created_at": "2026-07-03 18:05:47"
     }
-  ]
 }
 ```
 
@@ -250,25 +238,25 @@ Mengambil detail satu tugas berdasarkan id.
 
 **Request**
 ```
-GET /dailytask_api/tasks/read_single.php?id=3
+GET http://localhost/dailytask_api/tasks/read_single.php?id=3
 ```
 
 **Response (sukses)**
 ```json
 {
-  "status": "success",
-  "message": "Data tugas berhasil diambil",
-  "data": {
-    "id": 3,
-    "user_id": 1,
-    "title": "Mengerjakan UAS Mobile Programming",
-    "description": "Membuat aplikasi DailyTask & dokumentasi",
-    "deadline": "2026-07-10",
-    "time": "23:59:00",
-    "priority": "High",
-    "status": "pending",
-    "created_at": "2026-07-05 10:20:00"
-  }
+    "status": "success",
+    "message": "Data tugas berhasil diambil",
+    "data": {
+        "id": 3,
+        "user_id": 1,
+        "title": "ffffff",
+        "description": "fff",
+        "deadline": "2026-07-03",
+        "time": "19:02:00",
+        "priority": "Medium",
+        "status": "done",
+        "created_at": "2026-07-03 19:02:35"
+    }
 }
 ```
 
@@ -277,7 +265,7 @@ Menambahkan tugas baru. Validasi: `user_id` valid, judul & deskripsi tidak koson
 
 **Request**
 ```
-POST /dailytask_api/tasks/create.php
+POST http://localhost/dailytask_api/tasks/create.php
 Content-Type: application/x-www-form-urlencoded
 
 user_id=1&title=Belajar Android&description=Belajar RecyclerView & Retrofit&deadline=2026-07-08&time=19:30&priority=High
@@ -306,7 +294,7 @@ Memperbarui data tugas yang sudah ada berdasarkan id.
 
 **Request**
 ```
-POST /dailytask_api/tasks/update.php
+POST http://localhost/dailytask_api/tasks/update.php
 Content-Type: application/x-www-form-urlencoded
 
 id=4&user_id=1&title=Belajar Android Lanjutan&description=Menambahkan fitur searching&deadline=2026-07-09&time=20:00&priority=Medium
@@ -334,7 +322,7 @@ Memperbarui status tugas menjadi `pending` atau `done` (dipakai saat pengguna me
 
 **Request**
 ```
-POST /dailytask_api/tasks/update_status.php
+POST http://localhost/dailytask_api/tasks/update_status.php
 Content-Type: application/x-www-form-urlencoded
 
 id=4&status=done
@@ -357,7 +345,7 @@ Menghapus tugas berdasarkan id.
 
 **Request**
 ```
-POST /dailytask_api/tasks/delete.php
+POST http://localhost/dailytask_api/tasks/delete.php
 Content-Type: application/x-www-form-urlencoded
 
 id=4
