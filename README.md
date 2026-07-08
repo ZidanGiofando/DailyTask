@@ -1,6 +1,6 @@
 # DailyTask 📋
 
-Aplikasi Android **Pengelola & Pengingat Tugas Harian** — dibuat untuk memenuhi Ujian Akhir Semester Mobile Programming (PG119), Kelompok AI, Universitas Budi Luhur.
+Aplikasi Android **Pengelola & Pengingat Tugas Harian** — dibuat untuk memenuhi Ujian Akhir Semester Mobile Programming, Kelompok AI, Universitas Budi Luhur.
 
 **Disusun oleh:**
 - Zidan Giofando — 2411500834
